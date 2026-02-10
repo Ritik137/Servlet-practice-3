@@ -14,15 +14,31 @@
         align-items: center;
         background: linear-gradient(135deg, #667eea, #764ba2);
         font-family: Arial, sans-serif;
+        overflow: hidden;
     }
 
     .box {
         background: white;
-        padding: 35px 45px;
-        border-radius: 14px;
+        padding: 40px 50px;
+        border-radius: 16px;
         text-align: center;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-        width: 320px;
+        width: 340px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        animation: popIn 0.8s ease-out;
+    }
+
+    @keyframes popIn {
+        0% {
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        80% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
     }
 
     h1 {
@@ -31,25 +47,38 @@
     }
 
     .result {
-        font-size: 32px;
+        font-size: 40px;
         font-weight: bold;
         color: #667eea;
         margin: 20px 0;
+        animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 5px rgba(102,126,234,0.4);
+        }
+        to {
+            text-shadow: 0 0 20px rgba(102,126,234,0.9);
+        }
     }
 
     a {
         display: inline-block;
-        margin-top: 15px;
+        margin-top: 20px;
         text-decoration: none;
-        padding: 10px 20px;
+        padding: 12px 24px;
         background: #667eea;
         color: white;
-        border-radius: 6px;
+        border-radius: 8px;
         font-weight: bold;
+        transition: all 0.3s ease;
     }
 
     a:hover {
         background: #5a67d8;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
     }
 </style>
 
@@ -60,7 +89,7 @@
         <h1>Result</h1>
 
         <div class="result">
-            ${sum}
+            ${result}
         </div>
 
         <a href="home.html">Go Back</a>
