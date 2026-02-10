@@ -14,7 +14,6 @@
         align-items: center;
         background: linear-gradient(135deg, #667eea, #764ba2);
         font-family: Arial, sans-serif;
-        overflow: hidden;
     }
 
     .box {
@@ -28,14 +27,11 @@
     }
 
     @keyframes popIn {
-        0% {
+        from {
             transform: scale(0.5);
             opacity: 0;
         }
-        80% {
-            transform: scale(1.05);
-        }
-        100% {
+        to {
             transform: scale(1);
             opacity: 1;
         }
@@ -47,20 +43,10 @@
     }
 
     .result {
-        font-size: 40px;
+        font-size: 42px;
         font-weight: bold;
         color: #667eea;
         margin: 20px 0;
-        animation: glow 1.5s infinite alternate;
-    }
-
-    @keyframes glow {
-        from {
-            text-shadow: 0 0 5px rgba(102,126,234,0.4);
-        }
-        to {
-            text-shadow: 0 0 20px rgba(102,126,234,0.9);
-        }
     }
 
     a {
@@ -72,28 +58,28 @@
         color: white;
         border-radius: 8px;
         font-weight: bold;
-        transition: all 0.3s ease;
+        transition: 0.3s;
     }
 
     a:hover {
         background: #5a67d8;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        transform: translateY(-3px);
     }
 </style>
-
 </head>
+
 <body>
 
-    <div class="box">
-        <h1>Result</h1>
+<div class="box">
+    <h1>Result</h1>
 
-        <div class="result">
-            ${result}
-        </div>
-
-        <a href="home.html">Go Back</a>
+    <!-- IMPORTANT: attribute name must match controller -->
+    <div class="result">
+        ${result}
     </div>
+
+    <a href="home.html">Go Back</a>
+</div>
 
 </body>
 </html>
